@@ -1,5 +1,9 @@
-# FrameFlex.
-
+<p align="center" width="100%">
+    <img width="20%" src="https://github.com/matboud/FrameFlex/assets/24990394/a914c70c-19b0-4bb7-b623-6515d18f5bc2">
+</p>
+<br>
+<hr />
+<br>
 ### 📙 Description:
 
 This project showcases a full-stack application that provides a dynamic platform for movie enthusiasts. Utilizing AWS RDS, it features a robust database backend to store and manage an extensive collection of movie data. The backend API, developed in Node.js, offers efficient data handling and serves movie information with features like genre filtering and title search.
@@ -17,4 +21,4 @@ The frontend, crafted in React with Material-UI, presents an intuitive and respo
 
 ## Authors
 
-- [@matboud](https://www.github.com/matboud)
+- [Matboud](https://www.github.com/matboud)
