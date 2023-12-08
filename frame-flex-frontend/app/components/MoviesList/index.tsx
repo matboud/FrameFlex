@@ -32,20 +32,18 @@ const MoviesList = () => {
             ? movies.filteredMovies
             : movies.movies
           ).map((movie, index) => (
-            <>
-              <Grid item key={index} xs={4} sm={3.4} md={3} lg={2.4}>
-                <MovieCard
-                  key={index}
-                  title={movie.title}
-                  rating={movie.rating}
-                  genre={movie.genre}
-                  year={movie.year}
-                  imageUrl={movie.imageUrl}
-                  director={movie.director}
-                  actors={movie.actors}
-                />
-              </Grid>
-            </>
+            <Grid item key={index} xs={4} sm={3.4} md={3} lg={2.4}>
+              <MovieCard
+                key={index}
+                title={movie.title}
+                rating={movie.rating}
+                genre={movie.genre}
+                year={movie.year}
+                imageUrl={movie.imageUrl}
+                director={movie.director}
+                actors={movie.actors}
+              />
+            </Grid>
           ))
         )}
       </Grid>
