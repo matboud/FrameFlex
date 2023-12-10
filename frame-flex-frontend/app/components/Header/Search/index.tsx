@@ -1,49 +1,25 @@
 "use client";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { styled, alpha, InputBase, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import { movieSlice } from "@/lib/redux/slices/movieSlice";
+import { Search, SearchIconWrapper, StyledInputBase } from "./search.styles";
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  width: "auto",
-  marginLeft: theme.spacing(3),
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
-
-export default function HeaderSearch() {
+export default function HeaderSearch({ title }: { title: string }) {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
+
+  /**
+   * @description
+   *
+   * ==============================================================================
+   * Note: A debouncer could be implemented to limit API calls on every keystroke.
+   * However, in this small-scale app, where search functionality does not interact
+   * with an API, the addition of a debouncer is unnecessary.
+   * ==============================================================================
+   */
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
@@ -62,14 +38,14 @@ export default function HeaderSearch() {
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase
-        placeholder="Search…"
+        placeholder={title}
         inputProps={{ "aria-label": "search" }}
         value={searchTerm}
         onChange={handleSearchChange}
       />
       {searchTerm.length > 0 && (
         <Button onClick={deleteSearch}>
-          <ClearIcon  color="error" />
+          <ClearIcon color="error" />
         </Button>
       )}
     </Search>

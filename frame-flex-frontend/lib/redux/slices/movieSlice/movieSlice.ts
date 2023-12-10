@@ -3,7 +3,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { movies } from "@/lib/redux/slices/movieSlice/mockedData";
 
 /* Types */
-export interface Movie {
+export interface MovieType {
   title: string;
   year: number;
   genre: string[];
@@ -14,9 +14,9 @@ export interface Movie {
 }
 
 export interface MovieSliceState {
-  movies: Movie[];
+  movies: MovieType[];
   searchTerm: string;
-  filteredMovies: Movie[];
+  filteredMovies: MovieType[];
 }
 
 const initialState: MovieSliceState = {
@@ -25,7 +25,7 @@ const initialState: MovieSliceState = {
   filteredMovies: movies,
 };
 
-export const getUniqueGenres = (movies: Movie[]) => {
+export const getUniqueGenres = (movies: MovieType[]) => {
   const allGenres = movies.flatMap((movie) => movie.genre);
   const uniqueGenres = Array.from(new Set(allGenres));
 
@@ -47,7 +47,6 @@ export const movieSlice = createSlice({
       // TODO: implement data fetching
     },
     search: (state, action: PayloadAction<string>) => {
-      console.log("heeere:", action);
       state.searchTerm = action.payload;
       state.filteredMovies = state.movies.filter((movie) =>
         movie.title.toLowerCase().includes(state.searchTerm.toLowerCase())

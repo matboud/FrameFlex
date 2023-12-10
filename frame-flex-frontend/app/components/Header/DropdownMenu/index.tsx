@@ -1,49 +1,50 @@
 "use client";
-import React from "react";
+import React, { memo, useCallback } from "react";
 import { Menu, MenuItem } from "@mui/material";
-
-export interface DropdownMenuItem {
-  label: string;
-  value: string;
-  icon?: JSX.Element;
-}
+import { DropdownMenuType } from "./types";
 
 interface DropdownMenuProps {
-  items: DropdownMenuItem[];
+  items: DropdownMenuType[];
   anchorEl: null | HTMLElement;
   open: boolean;
   onClose: () => void;
-  onItemSelect: (value: string) => void;
+  onItemSelect: (obj: DropdownMenuType) => void;
 }
 
-export default function DropdownMenu({ items, anchorEl, open, onClose, onItemSelect }: DropdownMenuProps) {
-  return (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={open}
-      onClose={onClose}
-    >
-      {items.map((item) => (
-        <MenuItem
-          key={item.value}
-          onClick={() => {
-            onItemSelect(item.value);
-            onClose();
-          }}
-        >
-          {item.icon}
-          {item.label}
-        </MenuItem>
-      ))}
-    </Menu>
-  );
-}
+const DropdownMenu: React.FC<DropdownMenuProps> = memo(
+  ({ items, anchorEl, open, onClose, onItemSelect }) => {
+    const handleItemClick = useCallback(
+      (item: DropdownMenuType) => {
+        onItemSelect(item);
+        onClose();
+      },
+      [onItemSelect, onClose]
+    );
+
+    return (
+      <Menu
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        keepMounted
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        open={open}
+        onClose={onClose}
+      >
+        {items.map((item) => (
+          <MenuItem key={item.value} onClick={() => handleItemClick(item)}>
+            {item.icon}
+            {item.label}
+          </MenuItem>
+        ))}
+      </Menu>
+    );
+  }
+);
+
+export default DropdownMenu;

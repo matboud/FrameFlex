@@ -1,13 +1,18 @@
-// FilterButton/index.tsx
-import React from 'react';
-import { IconButton } from '@mui/material';
-import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
+import React from "react";
+import { IconButton } from "@mui/material";
+import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 
 interface FilterButtonProps {
-  onClick: (event: any) => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  icon?: React.ReactNode;
+  [key: string]: any;
 }
 
-export default function FilterButton({ onClick }: FilterButtonProps) {
+export default React.memo(function FilterButton({
+  onClick,
+  icon = <FilterAltOutlinedIcon />,
+  ...props
+}: FilterButtonProps) {
   return (
     <IconButton
       size="large"
@@ -16,8 +21,9 @@ export default function FilterButton({ onClick }: FilterButtonProps) {
       aria-haspopup="true"
       onClick={onClick}
       color="inherit"
+      {...props}
     >
-      <FilterAltOutlinedIcon />
+      {icon}
     </IconButton>
   );
-}
+});

@@ -1,60 +1,82 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { Container, Box, Toolbar, Typography } from "@mui/material";
 import Search from "./Search";
 import AppBar from "./AppBar";
 import Logo from "./Logo";
-import DropdownMenu, { DropdownMenuItem } from "./DropdownMenu";
+import DropdownMenu from "./DropdownMenu";
 import FilterButton from "./FilterButton";
 import LanguageButton from "./LanguageButton";
-import { Movie, selectMovies, useSelector, useDispatch } from "@/lib/redux";
+import { selectMovies, useSelector, useDispatch } from "@/lib/redux";
 import { movieSlice, getUniqueGenres } from "@/lib/redux/slices/movieSlice";
+import i18n from "i18next";
+import {
+  useLanguageItems,
+  useFlagByLanguageCode,
+} from "@/lib/hooks/useLanguage";
 
-export default function PrimarySearchAppBar() {
+type DropDownType = {
+  label: string;
+  value: string;
+};
+
+interface MenuAnchorsState {
+  lang: HTMLElement | null;
+  filter: HTMLElement | null;
+  mobileMore: HTMLElement | null;
+}
+
+export default function PrimarySearchAppBar({ t }: { t: any }) {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
+  const languageItems = useLanguageItems();
 
-  const [menuAnchors, setMenuAnchors] = useState({
+  const currentLanguageCode = i18n.language;
+  const getFlagByLanguageCode = useFlagByLanguageCode(
+    currentLanguageCode,
+    languageItems
+  );
+  const uniqueGenres = useMemo(
+    () => getUniqueGenres(movies.movies),
+    [movies.movies]
+  );
+
+  const [menuAnchors, setMenuAnchors] = useState<MenuAnchorsState>({
     lang: null,
     filter: null,
     mobileMore: null,
   });
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    getFlagByLanguageCode
+  );
 
-  const uniqueGenres = getUniqueGenres(movies.movies);
+  const handleMenuOpen = useCallback(
+    (menuType: keyof MenuAnchorsState, anchor: HTMLElement) => {
+      setMenuAnchors((prevAnchors) => ({ ...prevAnchors, [menuType]: anchor }));
+    },
+    []
+  );
 
-  const [selectedLanguage, setSelectedLanguage] = useState("🇺🇸");
-
-  const handleMenuOpen = (menuType: string, anchor: HTMLElement | null) => {
-    setMenuAnchors({ ...menuAnchors, [menuType]: anchor });
-  };
-
-  const handleMenuClose = () => {
+  const handleMenuClose = useCallback(() => {
     setMenuAnchors({ lang: null, filter: null, mobileMore: null });
-  };
+  }, []);
 
-  const handleLanguageSelect = (value: string) => {
-    setSelectedLanguage(value);
-    handleMenuClose();
-  };
+  const handleLanguageSelect = useCallback(
+    (language: DropDownType) => {
+      i18n.changeLanguage(language.value);
+      setSelectedLanguage(language.label);
+      handleMenuClose();
+    },
+    [handleMenuClose]
+  );
 
-  const handleFilterMenuOpen = () => {
-    handleMenuOpen("filter", menuAnchors.mobileMore);
-  };
-
-  const handleLangMenuOpen = () => {
-    handleMenuOpen("lang", menuAnchors.mobileMore);
-  };
-
-  const handleSelectedGenre = (genre: string) => {
-    dispatch(movieSlice.actions.filterByGenre(genre));
-  };
-
-  const languageItems: DropdownMenuItem[] = [
-    { label: "🇺🇸", value: "🇺🇸" },
-    { label: "🇪🇸", value: "🇪🇸" },
-    { label: "🇫🇷", value: "🇫🇷" },
-  ];
+  const handleSelectedGenre = useCallback(
+    (filter: DropDownType) => {
+      dispatch(movieSlice.actions.filterByGenre(filter.value));
+    },
+    [dispatch]
+  );
 
   return (
     <AppBar>
@@ -63,7 +85,7 @@ export default function PrimarySearchAppBar() {
           <Typography noWrap component="div">
             <Logo />
           </Typography>
-          <Search />
+          <Search title={t("search")} />
           <Box sx={{ flexGrow: 1 }} />
           <Box>
             <FilterButton
@@ -84,6 +106,7 @@ export default function PrimarySearchAppBar() {
         onClose={handleMenuClose}
         onItemSelect={handleLanguageSelect}
       />
+
       <DropdownMenu
         items={uniqueGenres}
         anchorEl={menuAnchors.filter}

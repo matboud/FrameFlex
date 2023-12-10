@@ -3,28 +3,26 @@ import { IconButton } from "@mui/material";
 import GTranslateOutlinedIcon from "@mui/icons-material/GTranslateOutlined";
 
 interface LanguageButtonProps {
-  onClick: (event: any) => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   selectedLanguage: string;
 }
 
-export default function LanguageButton({
+export default React.memo(function LanguageButton({
   onClick,
   selectedLanguage,
+  ...props
 }: LanguageButtonProps) {
-  const renderLanguageButton = () => {
-    return selectedLanguage;
-  };
-
   return (
     <IconButton
       size="large"
       edge="end"
-      aria-label="language options"
+      aria-label={`Select language - currently ${selectedLanguage}`}
       aria-haspopup="true"
       onClick={onClick}
       color="inherit"
+      {...props}
     >
-      <span style={{ fontSize: "18px" }}>{renderLanguageButton()}</span>
+      <span style={{ marginLeft: 8, fontSize: "18px" }}>{selectedLanguage}</span>
     </IconButton>
   );
-}
+});
