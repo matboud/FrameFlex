@@ -27,7 +27,7 @@ export const movies = [
     actors: ["Christian Bale", "Heath Ledger"],
     rating: 9.0,
     imageUrl:
-    "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX190_CR0,0,190,281_.jpg",
   },
   {
     title: "Forrest Gump",
@@ -57,7 +57,7 @@ export const movies = [
     actors: ["Russell Crowe", "Joaquin Phoenix"],
     rating: 8.5,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BMTMxNTMwMDM0NF5BMl5BanBnXkFtZTcwMDI3OTI4MQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
   {
     title: "The Godfather",
@@ -67,7 +67,7 @@ export const movies = [
     actors: ["Marlon Brando", "Al Pacino"],
     rating: 9.2,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BMjUzNTA3ODc2MF5BMl5BanBnXkFtZTcwMjI2NjM2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
   {
     title: "The Lord of the Rings: The Return of the King",
@@ -77,7 +77,7 @@ export const movies = [
     actors: ["Elijah Wood", "Ian McKellen"],
     rating: 8.9,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BMjE4OTk3NDcwMF5BMl5BanBnXkFtZTcwOTM4NDIzMw@@._V1_UY268_CR1,0,182,268_AL_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
   {
     title: "The Lord of the Rings: The Fellowship of the Ring",
@@ -87,7 +87,7 @@ export const movies = [
     actors: ["Elijah Wood", "Ian McKellen"],
     rating: 8.9,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BMjE4OTk3NDcwMF5BMl5BanBnXkFtZTcwOTM4NDIzMw@@._V1_UY268_CR1,0,182,268_AL_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
   {
     title: "The Lord of the Rings: The Two Towers",
@@ -97,7 +97,7 @@ export const movies = [
     actors: ["Elijah Wood", "Ian McKellen"],
     rating: 8.9,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BMjE4OTk3NDcwMF5BMl5BanBnXkFtZTcwOTM4NDIzMw@@._V1_UY268_CR1,0,182,268_AL_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
   {
     title: "Star Wars: Episode V - The Empire Strikes Back",
@@ -107,7 +107,7 @@ export const movies = [
     actors: ["Harrison Ford", "Carrie Fisher"],
     rating: 8.6,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
   {
     title: "Star Wars: Episode IV - A New Hope",
@@ -117,7 +117,7 @@ export const movies = [
     actors: ["Mark Hamill", "Harrison Ford"],
     rating: 8.6,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
   {
     title: "The Matrix",
@@ -127,6 +127,6 @@ export const movies = [
     actors: ["Keanu Reeves", "Laurence Fishburne"],
     rating: 8.4,
     imageUrl:
-      "https://m.media-amazon.com/images/M/MV5BMjMxNTMwMDQ4MF5BMl5BanBnXkFtZTcwODc5MTU4Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
 ];
