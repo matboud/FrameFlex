@@ -16,7 +16,7 @@ const initI18next = async (lng, ns) => {
       .init(getOptions(lng, ns));
     return i18nInstance;
   } catch (error) {
-    console.error("Error initializing i18next:", error);
+    // console.error("Error initializing i18next:", error);
     throw error; // Re-throw to handle it in the calling function.
   }
 };
@@ -34,6 +34,6 @@ export async function getCustomTranslation(lng, ns, options = {}) {
     };
   } catch (error) {
     // TODO: Handle the error appropriately, @ex: return a default value or throw.
-    console.error("Error in getCustomTranslation:", error);
+    // console.error("Error in getCustomTranslation:", error);
   }
 }
