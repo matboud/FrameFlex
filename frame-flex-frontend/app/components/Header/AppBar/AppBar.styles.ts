@@ -5,10 +5,6 @@ export const StyledAppBar = styled(MuiAppBar)(({ theme }) => ({
   backdropFilter: "blur(8px)",
   boxShadow: theme.shadows[4],
   border: "1px solid rgba(255, 255, 255, 0.18)",
-  // TODO: Fix this
-  //   [theme.breakpoints.up('sm')]: {
-  //     // Responsive styles if needed
-  //   },
 }));
 
 export const StyledBox = styled(Box)(({ theme }) => ({

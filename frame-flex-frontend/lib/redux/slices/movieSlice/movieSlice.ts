@@ -51,7 +51,6 @@ export const movieSlice = createSlice({
       state.filteredMovies = state.movies.filter((movie) =>
         movie.title.toLowerCase().includes(state.searchTerm.toLowerCase())
       );
-      console.log("state.filteredMovies", state.filteredMovies);
     },
     filterByGenre: (state, action: PayloadAction<string>) => {
       if (action.payload === "All") {

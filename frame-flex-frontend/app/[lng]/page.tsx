@@ -2,7 +2,6 @@
 import React from "react";
 import Header from "../components/Header";
 import MoviesList from "../components/MoviesList";
-import Trending from "../components/Trending";
 import { useTranslation } from "../i18n/client";
 
 /**
@@ -32,7 +31,6 @@ export default function IndexPage({
     <div>
       <Header t={t} />
       <div className="container">
-        <Trending title={t("trending")} />
         <MoviesList title={t("allMovies")} noResult={t("noResult")} />
       </div>
     </div>

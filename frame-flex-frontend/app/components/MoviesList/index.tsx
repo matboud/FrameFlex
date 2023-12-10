@@ -1,12 +1,9 @@
-"use client";
-
 import React from "react";
 import Grid from "@mui/material/Grid";
-import MovieCard from "../MovieCard"; // Adjust the import path as necessary
+import MovieCard from "../MovieCard";
 import { Container } from "@mui/material";
 import { MovieType, selectMovies, useSelector } from "@/lib/redux";
 
-// TODO: create beautiful UI for this component
 const MoviesList = ({
   title,
   noResult,
@@ -34,7 +31,7 @@ const MoviesList = ({
         spacing={2}
       >
         {searchTerm && filteredMovies.length === 0 ? (
-          <div className="no-result">{noResult}</div>
+          <div className="no-result"> 🥲 {noResult}</div>
         ) : (
           renderMovieCards(filteredMovies.length > 0 ? filteredMovies : movies)
         )}
