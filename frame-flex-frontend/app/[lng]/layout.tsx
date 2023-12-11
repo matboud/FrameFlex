@@ -11,11 +11,12 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
-export const metadata = {  
+export const metadata = {
   title: "FrameFlex",
   description: "Search for movies and TV shows",
-  keywords: "home, page, movies, FrameFlex, tv, shows, tv shows, movies, tv shows, movies, tv shows, movie",
-}
+  keywords:
+    "home, page, movies, FrameFlex, tv, shows, tv shows, movies, tv shows, movies, tv shows, movie",
+};
 
 function RootLayout({
   children,
@@ -29,6 +30,7 @@ function RootLayout({
   return (
     <Providers>
       <html lang={lng} dir={dir(lng)}>
+        {/* <link rel="manifest" href="/manifest.webmanifest" /> */}
         <body>{children}</body>
       </html>
     </Providers>
@@ -36,4 +38,3 @@ function RootLayout({
 }
 
 export default RootLayout;
-

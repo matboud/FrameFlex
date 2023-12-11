@@ -11,6 +11,7 @@ import LanguageButton from "./LanguageButton";
 import { selectMovies, useSelector, useDispatch } from "@/lib/redux";
 import { movieSlice, getUniqueGenres } from "@/lib/redux/slices/movieSlice";
 import i18n from "i18next";
+import { Trans } from "react-i18next/TransWithoutContext";
 import {
   useLanguageItems,
   useFlagByLanguageCode,
@@ -27,7 +28,13 @@ interface MenuAnchorsState {
   mobileMore: HTMLElement | null;
 }
 
-export default function PrimarySearchAppBar({ t }: { t: any }) {
+export default function PrimarySearchAppBar({
+  t,
+  lng,
+}: {
+  t: any;
+  lng: string | any;
+}) {
   const dispatch = useDispatch();
   const movies = useSelector(selectMovies);
   const languageItems = useLanguageItems();
@@ -105,6 +112,7 @@ export default function PrimarySearchAppBar({ t }: { t: any }) {
         open={Boolean(menuAnchors.lang)}
         onClose={handleMenuClose}
         onItemSelect={handleLanguageSelect}
+        language
       />
 
       <DropdownMenu

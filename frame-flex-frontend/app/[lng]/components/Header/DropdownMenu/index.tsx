@@ -2,6 +2,7 @@
 import React, { memo, useCallback } from "react";
 import { Menu, MenuItem } from "@mui/material";
 import { DropdownMenuType } from "./types";
+import Link from "next/link";
 
 interface DropdownMenuProps {
   items: DropdownMenuType[];
@@ -9,10 +10,11 @@ interface DropdownMenuProps {
   open: boolean;
   onClose: () => void;
   onItemSelect: (obj: DropdownMenuType) => void;
+  language?: boolean;
 }
 
 const DropdownMenu: React.FC<DropdownMenuProps> = memo(
-  ({ items, anchorEl, open, onClose, onItemSelect }) => {
+  ({ items, anchorEl, open, onClose, onItemSelect, language }) => {
     const handleItemClick = useCallback(
       (item: DropdownMenuType) => {
         onItemSelect(item);

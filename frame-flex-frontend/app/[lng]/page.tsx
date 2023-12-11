@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Header from "../components/Header";
-import MoviesList from "../components/MoviesList";
+import Header from "./components/Header";
+import MoviesList from "./components/MoviesList";
 import { useTranslation } from "../i18n/client";
 
 /**
@@ -25,11 +25,11 @@ export default function IndexPage({
 }: {
   params: { lng: string };
 }) {
-  const { t } = useTranslation(lng, "header");
+  const { t } = useTranslation(lng, 'header');
 
   return (
     <div>
-      <Header t={t} />
+      <Header t={t} lng={lng} />
       <div className="container">
         <MoviesList title={t("allMovies")} noResult={t("noResult")} />
       </div>
