@@ -1,27 +1,37 @@
 {
-  "name": "frame-flex",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "generate-pwa-manifest": "next build && next export"
   },
   "dependencies": {
-    "next": "14.0.3",
-    "react": "^18",
-    "react-dom": "^18"
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/inter": "^5.0.15",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/joy": "^5.0.0-beta.16",
+    "@mui/material": "^5.14.19",
+    "@reduxjs/toolkit": "1.9.5",
+    "accept-language": "^3.0.18",
+    "i18next": "^23.7.8",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-resources-to-backend": "^1.2.0",
+    "next": "latest",
+    "react": "18.2.0",
+    "react-cookie": "^6.1.1",
+    "react-dom": "18.2.0",
+    "react-i18next": "^13.5.0",
+    "react-multi-carousel": "^2.8.4",
+    "react-redux": "8.1.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.3",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.3.5",
-    "typescript": "^5"
+    "@types/node": "20.3.1",
+    "@types/react": "18.2.8",
+    "@types/react-dom": "18.2.5",
+    "@types/redux-logger": "3.0.9",
+    "redux-logger": "3.0.6",
+    "typescript": "5.1.3"
   }
 }
